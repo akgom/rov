@@ -1,0 +1,48 @@
+let blockedUntil = 0
+
+radio.setGroup(7)
+basic.clearScreen()
+
+radio.onReceivedString(function (msg: string) {
+    if (msg == "danger" || msg == "near") {
+        blockedUntil = input.runningTime() + 1000
+        roversa.stop()
+        basic.showIcon(IconNames.Angry)
+        return
+    }
+
+    if (msg == "pet") {
+        if (input.runningTime() < blockedUntil) {
+            roversa.stop()
+            return
+        }
+
+        basic.showIcon(IconNames.Happy)
+        basic.pause(400)
+        basic.clearScreen()
+        return
+    }
+
+    if (msg == "wave") {
+        if (input.runningTime() < blockedUntil) {
+            roversa.stop()
+            return
+        }
+
+        basic.showIcon(IconNames.Heart)
+        basic.pause(400)
+        basic.clearScreen()
+        return
+    }
+})
+
+basic.forever(function () {
+    if (input.runningTime() < blockedUntil) {
+        roversa.stop()
+        basic.showIcon(IconNames.Angry)
+    } else {
+        basic.clearScreen()
+    }
+
+    basic.pause(20)
+})
