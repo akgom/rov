@@ -1,0 +1,11 @@
+radio.setGroup(7)
+
+ml.onStart(ml.event.Pet, function () {
+    basic.showIcon(IconNames.Happy)
+    radio.sendString("pet")
+})
+
+ml.onStart(ml.event.Wave, function () {
+    basic.showIcon(IconNames.SmallHeart)
+    radio.sendString("wave")
+})
