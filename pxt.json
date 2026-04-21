@@ -1,10 +1,9 @@
 {
   "name": "rov",
-  "description": "Roversa pet behavior extension",
+  "description": "Roversa companion extension with sensor and reaction helpers",
   "dependencies": {
     "core": "*",
-    "radio": "*",
-    "microphone": "*"
+    "radio": "*"
   },
   "files": [
     "main.ts",
